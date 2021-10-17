@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,6 +43,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                 .into(holder.iv_profile);
         holder.tv_id.setText(arrayList.get(position).getId());
         holder.tv_W.setText(String.valueOf(arrayList.get(position).getW()));
+        holder.tv_sWitch.setText(arrayList.get(position).getsWitch());
 
     }
 
@@ -54,11 +56,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         ImageView iv_profile;
         TextView tv_id;
         TextView tv_W;
+        TextView tv_sWitch;
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             this.iv_profile = itemView.findViewById((R.id.iv_profile));
             this.tv_id = itemView.findViewById(R.id.tv_id);
             this.tv_W = itemView.findViewById(R.id.tv_W);
+            this.tv_sWitch = itemView.findViewById(R.id.tv_sWitch);
         }
     }
+
 }
