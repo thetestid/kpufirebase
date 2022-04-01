@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HOME NETWORK</title>
+</head>
+<body>
+        <div class="main">
+            <div>
+                <button onclick="relay_on()">relay ON</button>
+            </div>
+            <div>
+                <button onclick="relay_off()">relay OFF</button>
+            </div>
+        </div>
+        <div id="result">
+        </div>
+    </div>
+    <script>
+        function relay_on(){
+            fetch("/relay/on")
+            .then(response=> { console.log(response); return response.text()})
+            .then(data=> {
+                console.log(data);
+                let result = document.querySelector("#result");
+                if(data=="ok"){
+                    result.innerHTML = "<h1>relay on</h1>";
+                }else{
+                    result.innerHTML = "<h1>error</h1>";
+                }
+            });
+        }
+        function relay_off(){
+            fetch("/relay/off")
+            .then(response=> response.text())
+            .then(data=> {
+                console.log(data);
+                let result = document.querySelector("#result");
+                if(data=="ok"){  
+                    result.innerHTML = "<h1>relay off</h1>";
+                }else{
+                    result.innerHTML = "<h1>error</h1>";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
